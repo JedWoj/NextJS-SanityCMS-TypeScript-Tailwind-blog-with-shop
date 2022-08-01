@@ -1,8 +1,19 @@
 import {sanityClient, urlFor} from '../../../lib/sanity';
+import Image from 'next/image';
 
 type slug = {
   _type: string,
   current: string,
+}
+
+type asset = {
+  _ref: string,
+  _type: string
+}
+
+type image = {
+  _type: string,
+  asset: asset
 }
 
 type post = {
@@ -10,6 +21,7 @@ type post = {
   header: string,
   slug: slug,
   _id: string,
+  image: image,
 }
 
 type Props = {
@@ -17,10 +29,13 @@ type Props = {
 }
 
 const App = ({posts}: Props) => {
+  console.log(urlFor(posts[0].image.asset._ref).url());
   return(
   <div>
     <ul>
-      {posts.map(post => <li key={post._id}>{post.header} {post.author}</li>)}
+      {posts.map(post => <li key={post._id}>
+        <Image src={urlFor(post.image.asset._ref).url()} alt={post.header} width={500} height={500} />
+      </li>)}
     </ul>
   </div>)
 }
@@ -30,7 +45,8 @@ export async function getStaticProps() {
     header,
     _id,
     author,
-    slug
+    slug,
+    image
   }`;
 
   const posts = await sanityClient.fetch(postsQuery);
