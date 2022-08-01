@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import '../styles/globals.css'
+import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return(
+  return (
     <>
       <nav>
         <div>
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <a>
               Page 2
             </a>
-          </Link> 
+          </Link>
         </div>
       </nav>
       <main>

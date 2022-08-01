@@ -37,6 +37,7 @@ const App = ({posts}: Props) => {
         <Image src={urlFor(post.image.asset._ref).url()} alt={post.header} width={500} height={500} />
       </li>)}
     </ul>
+    <h1 className='underline text-3xl'>Hello</h1>
   </div>)
 }
 
