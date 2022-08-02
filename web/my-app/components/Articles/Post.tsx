@@ -4,8 +4,10 @@ import Image from 'next/image';
 
 const Post = ({ post }: { post: post }) => {
     return (
-        <li>
-            <Image src={urlFor(post.image.asset._ref).url()} alt={post.header} width={500} height={500} />
+        <li className='rounded-md bg-emerald-400'>
+            <figure className='h-40 relative'>
+                <Image layout='fill' objectFit='cover' className='rounded-t-md' src={urlFor(post.image.asset._ref).url()} alt={post.header} width={500} height={500} />
+            </figure>
             <p>DObrze</p>
         </li>
     )
