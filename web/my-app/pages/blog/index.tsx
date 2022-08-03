@@ -26,7 +26,7 @@ const allBlogPostsPage = ({ posts }: Props) => {
     )
 }
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
     const postsQuery = ` *[_type == 'post'] {
       header,
       _id,
