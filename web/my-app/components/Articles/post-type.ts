@@ -1,6 +1,4 @@
-import { type } from "os"
-
-type slug = {
+export type slug = {
     _type: string,
     current: string,
 }
@@ -10,7 +8,7 @@ type asset = {
     _type: string
 }
 
-type image = {
+export type image = {
     _type: string,
     asset: asset
 }
