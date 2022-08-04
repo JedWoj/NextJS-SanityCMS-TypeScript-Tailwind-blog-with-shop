@@ -1,16 +1,18 @@
 import { sanityClient } from "../../../../lib/sanity";
 import ProductsList from "../../components/Products/ProductsList";
 import { product } from "../../components/Products/product-type";
+import { useShopCtx } from "../../store/shop-context";
 
 const shopPage = ({ products }: { products: product[] }) => {
+    const { loadMore, loadedProducts } = useShopCtx();
+
     return (
         <section className="text-center">
             <ProductsList products={products} />
-            <button className="gradient text-white px-6 py-4 rounded mb-4">
+            {products.length > loadedProducts && <button onClick={loadMore} className="gradient text-white px-6 py-4 rounded mb-4">
                 Load more
-            </button>
+            </button>}
         </section>
-
     )
 }
 
