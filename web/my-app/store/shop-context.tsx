@@ -32,9 +32,9 @@ export const ShopCtxProvider = ({ children }: Props) => {
         loadMore,
     }
 
-    return (<>
+    return (
         <shopContext.Provider value={value}>
             {children}
         </shopContext.Provider>
-    </>)
+    )
 }
