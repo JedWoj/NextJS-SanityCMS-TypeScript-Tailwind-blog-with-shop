@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       }`;
 
     const product = await sanityClient.fetch(productQuery);
-    return { props: { product } }
+    return { props: { product }, revalidate: 120 }
 }
 
 export const getStaticPaths = async () => {

@@ -36,7 +36,7 @@ export const getStaticProps = async () => {
     }`;
 
     const posts = await sanityClient.fetch(postsQuery);
-    return { props: { posts } }
+    return { props: { posts }, revalidate: 180 }
 }
 
 export default allBlogPostsPage;

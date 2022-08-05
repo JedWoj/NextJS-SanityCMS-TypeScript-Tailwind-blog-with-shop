@@ -1,20 +1,39 @@
+import { type } from "os";
 import { createContext, ReactNode, useContext, useState, useReducer } from "react";
 
-type prod = {
+export type item = {
     name: string,
     quantity: number,
     price: number,
     id: string,
+    image: string,
 }
 
 type cartContextType = {
     modalIsOpen: boolean,
     setModalIsOpen: () => void,
-    cart: prod[],
-    addToCart: (prod: prod) => void,
-    removeFromCart: (id: string) => void,
+    cart: item[],
+    addToCart: (prod: item) => void,
+    removeFromCart: (item: item) => void,
     clearCart: () => void,
     totalAmount: number,
+}
+
+type Reducer<State, Action> = (state: cartContextType, action: Action) => State;
+
+enum ActionKind {
+    Add = 'ADD',
+    Remove = 'REMOVE',
+    Clear = 'CLEAR',
+}
+
+type Action = {
+    type: ActionKind,
+    item: item
+}
+
+type Props = {
+    children: ReactNode,
 }
 
 const cartContextDefaultValues: cartContextType = {
@@ -22,7 +41,7 @@ const cartContextDefaultValues: cartContextType = {
     setModalIsOpen: () => { },
     cart: [],
     addToCart: (prod) => { },
-    removeFromCart: (id) => { },
+    removeFromCart: (item) => { },
     clearCart: () => { },
     totalAmount: 0,
 }
@@ -33,20 +52,16 @@ export const useCartCtx = () => {
     return useContext(cartContext);
 }
 
-type Props = {
-    children: ReactNode,
-}
 
 const defaultCartState = {
     cart: [],
     totalAmount: 0,
 }
 
-const cartReducer = (state, action) => {
+const cartReducer = (state: cartContextType, action: Action) => {
     if (action.type === 'ADD') {
         const updatedTotalAmount = state.totalAmount + action.item.price * action.item.quantity;
-
-        const existingCartItemIdex = state.cart.findIndex(item => item.id === action.item.id);
+        const existingCartItemIdex = state.cart.findIndex((item: item) => item.id === action.item.id);
         const existingCartItem = state.cart[existingCartItemIdex];
         let updatedItem;
         let updatedItems;
@@ -54,7 +69,7 @@ const cartReducer = (state, action) => {
         if (existingCartItem) {
             updatedItem = {
                 ...existingCartItem,
-                quantity: existingCartItem.quantity + action.item.quantity,
+                quantity: existingCartItem.quantity + 1,
             }
 
             updatedItems = [...state.cart];
@@ -74,12 +89,12 @@ const cartReducer = (state, action) => {
     }
 
     if (action.type === "REMOVE") {
-        const existingCartItemIdex = state.cart.findIndex(item => item.id === action.id);
+        const existingCartItemIdex = state.cart.findIndex((item: item) => item.id === action.item.id);
         const existingItem = state.cart[existingCartItemIdex];
         const updatedTotalAmount = state.totalAmount - existingItem.price;
         let updatedItems;
-        if (existingItem.quantiry === 1) {
-            updatedItems = state.cart.filter(item => item.id !== action.id);
+        if (existingItem.quantity === 1) {
+            updatedItems = state.cart.filter((item: item) => item.id !== action.item.id);
         } else {
             const updatedItem = { ...existingItem, quantity: existingItem.quantity - 1 };
             updatedItems = [...state.cart];
@@ -104,19 +119,18 @@ const cartReducer = (state, action) => {
 
 export const CartCtxProvider = ({ children }: Props) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-
-    const setModal = () => {
-        setModalIsOpen(!modalIsOpen);
-    }
-
     const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
 
-    const addItemToCartHandler = (item: prod) => {
-        dispatchCartAction({ type: 'ADD', item: item })
+    const setModal = () => {
+        setModalIsOpen(prevState => !prevState);
     }
 
-    const removeItemFromCartHandler = (id: string) => {
-        dispatchCartAction({ type: 'REMOVE', id: id })
+    const addItemToCartHandler = (item: item) => {
+        dispatchCartAction({ type: 'ADD', item: item });
+    }
+
+    const removeItemFromCartHandler = (item: item) => {
+        dispatchCartAction({ type: 'REMOVE', item: item })
     }
 
     const clearCartHandler = () => {
@@ -124,7 +138,7 @@ export const CartCtxProvider = ({ children }: Props) => {
     }
 
     const value = {
-        modalIsOpen,
+        modalIsOpen: modalIsOpen,
         setModalIsOpen: setModal,
         cart: cartState.cart,
         addToCart: addItemToCartHandler,

@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
       }`;
 
     const products = await sanityClient.fetch(productsQuery);
-    return { props: { products } }
+    return { props: { products }, revalidate: 120 }
 }
 
 export default shopPage;
