@@ -11,4 +11,8 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    &--opacity {
+        background: linear-gradient(140deg, rgba(91, 203, 233, 0.83) 0%, rgba(107, 160, 221, 0.85) 20%, rgba(117, 136, 235, 0.85) 31%, rgba(154, 91, 199, 0.82) 42%, rgba(228, 111, 240, 0.83) 69%, rgba(240, 111, 141, 0.84) 82%, rgba(217, 178, 114, 0.81) 100%);
+    }
 }

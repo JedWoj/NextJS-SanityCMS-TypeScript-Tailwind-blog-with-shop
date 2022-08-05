@@ -9,7 +9,6 @@ import { useCartCtx } from '../store/cart-context';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { modalIsOpen } = useCartCtx();
-  console.log(modalIsOpen);
 
   return (
     <CartCtxProvider>
