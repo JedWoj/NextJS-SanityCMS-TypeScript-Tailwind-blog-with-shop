@@ -6,7 +6,7 @@ const CartModal = () => {
     const { cart, setModalIsOpen, totalAmount } = useCartCtx();
 
     return (
-        <div className="bg-white rounded w-11/12 lg:w-3/4 2xl:w-1/2 relative mx-auto mt-8 p-6 bg-white text-center">
+        <div onClick={(e) => e.stopPropagation()} className="bg-white rounded w-11/12 lg:w-3/4 2xl:w-1/2 relative mx-auto mt-8 p-6 bg-white text-center">
             <div onClick={setModalIsOpen} className="absolute text-red-700 font-bold text-2xl top-4 right-8 cursor-pointer">
                 X
             </div>

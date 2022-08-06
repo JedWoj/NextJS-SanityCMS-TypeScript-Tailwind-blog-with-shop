@@ -6,7 +6,7 @@ const CartModalOverlay = () => {
 
     return (
         <>
-            {modalIsOpen && <div className="gradient--opacity w-screen h-screen fixed inset-0">
+            {modalIsOpen && <div onClick={setModalIsOpen} className="gradient--opacity w-screen h-screen fixed inset-0">
                 <CartModal />
             </div>}
         </>
