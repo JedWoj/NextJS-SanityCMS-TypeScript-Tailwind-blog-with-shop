@@ -18,9 +18,11 @@ const CartModal = () => {
                     {cart.map(itm => <CartItem key={itm.id} item={itm} />)}
                 </ul>
                 <div className="flex items-center mt-6 ">
-                    <button onClick={setModalIsOpen} className="gradient text-white rounded px-8 py-3 font-semibold">
-                        Checkout
-                    </button>
+                    <Link href='/shop/checkout'>
+                        <button onClick={setModalIsOpen} className="gradient text-white rounded px-8 py-3 font-semibold">
+                            Checkout
+                        </button>
+                    </Link>
                     <p className="ml-auto font-semibold gradient--text text-5xl">
                         Total: {totalAmount}$
                     </p>
