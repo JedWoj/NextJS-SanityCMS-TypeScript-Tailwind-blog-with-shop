@@ -15,13 +15,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <CartCtxProvider>
       <ShopCtxProvider>
         <div className='min-h-screen relative'>
-          {pathname !== CHECKOUT_PATH && <Navbar />}
+          {pathname !== CHECKOUT_PATH && pathname !== '/' && <Navbar />}
           <main>
             <Component {...pageProps} />
           </main>
         </div>
         <CartModalOverlay />
-        {pathname !== CHECKOUT_PATH && <CartIcon />}
+        {pathname !== CHECKOUT_PATH && pathname !== '/' && <CartIcon />}
       </ShopCtxProvider>
     </CartCtxProvider>
   )

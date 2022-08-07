@@ -8,7 +8,7 @@ const Post = ({ post }: { post: post }) => {
         <Link href={`blog/article/${post.slug.current}`}>
             <li className='mx-6 sm:mx-0 rounded-md gradient text-white shadow-2xl cursor-pointer'>
                 <figure className='h-64 sm:h-50 relative'>
-                    <Image layout='fill' objectFit='cover' className='rounded-t-md' src={urlFor(post.image.asset._ref).url()} alt={post.header} width={500} height={500} />
+                    <Image layout='fill' objectFit='cover' className='rounded-t-md' src={urlFor(post.image.asset._ref).url()} alt={post.header} />
                 </figure>
                 <section className='p-6'>
                     <h2 className='text-xl font-semibold'>
