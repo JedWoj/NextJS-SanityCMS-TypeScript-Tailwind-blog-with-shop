@@ -2,8 +2,14 @@ import Link from "next/link";
 import { useCartCtx } from "../../store/cart-context";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
+import CheckoutPopup from "./CheckoutPopup";
+import React from "react";
 
-const CheckoutForm = () => {
+export type Popup = {
+    popupHandler: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const CheckoutForm = ({ popupHandler }: Popup) => {
     const { clearCart } = useCartCtx();
     const formik = useFormik({
         initialValues: {
@@ -20,8 +26,9 @@ const CheckoutForm = () => {
             city: Yup.string().min(2, "City name must be longer than 2 characters").max(20, "City name must be shorter than 15 characters").required("City name is required"),
             adress: Yup.string().min(2, "Adress must be longer than 2 characters").required("Adress is required")
         }),
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: () => {
+            popupHandler(true);
+            clearCart();
         }
     });
 

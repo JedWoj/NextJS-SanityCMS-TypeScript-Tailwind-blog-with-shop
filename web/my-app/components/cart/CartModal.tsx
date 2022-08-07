@@ -11,7 +11,7 @@ const CartModal = () => {
                 X
             </div>
             {cart.length > 0 && <section>
-                <h2 className="gradient--text font-semibold text-2xl">
+                <h2 className="gradient--text font-semibold text-2xl lg:text-4xl">
                     Shopping Cart
                 </h2>
                 <ul className="mt-4">
@@ -19,11 +19,11 @@ const CartModal = () => {
                 </ul>
                 <div className="flex items-center mt-6 ">
                     <Link href='/shop/checkout'>
-                        <button onClick={setModalIsOpen} className="gradient text-white rounded px-8 py-3 font-semibold">
+                        <button onClick={setModalIsOpen} className="gradient text-white rounded px-6 py-2 lg:px-8 lg:py-3 font-semibold">
                             Checkout
                         </button>
                     </Link>
-                    <p className="ml-auto font-semibold gradient--text text-5xl">
+                    <p className="ml-auto font-semibold gradient--text text-2xl lg:text-4xl">
                         Total: {totalAmount}$
                     </p>
                 </div>
