@@ -1,15 +1,11 @@
 import { post } from "./post-type";
-// import { PortableText } from '@portabletext/react';
 import Image from "next/image";
 import { urlFor } from "../../../../lib/sanity";
 import styles from './Article.module.scss';
+import PortableText from "react-portable-text";
 
 const Article = ({ post }: { post: post[] }) => {
     const singlePost = post.at(0);
-    const mapText = () => {
-        const text = singlePost?.content.map(child => child.children[0].text).join('');
-        return text;
-    }
 
     return (
         <article className={`container mx-auto my-6 ${styles.article} border rounded shadow-2xl`}>
@@ -22,9 +18,8 @@ const Article = ({ post }: { post: post[] }) => {
                 </figure>
             </header>
             <section className="mx-12 mt-6 xl:mx-32 2xl:mx-64 text-justify mb-12 gradient--text font-semibold">
-                {mapText()}
+                <PortableText content={singlePost!.content} />
             </section>
-            {/* <PortableText value={singlePost?.content} /> */}
         </article>
     )
 }

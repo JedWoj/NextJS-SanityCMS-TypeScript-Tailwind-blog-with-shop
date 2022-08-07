@@ -5,6 +5,7 @@ import { useCartCtx } from "../../store/cart-context";
 
 const ProductOverview = ({ product }: { product: product }) => {
     const { addToCart } = useCartCtx();
+    console.log(product);
     const item = {
         name: product.Name,
         quantity: 1,
