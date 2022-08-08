@@ -13,7 +13,6 @@ const ProductsFilter = () => {
     const handleFiltering = () => {
         const categories = getCheckedCheckboxes();
         const filtered = allProducts.filter(p => categories.includes(p.gender)).filter(p => categories.includes(p.category));
-        console.log(filtered);
         setActiveProducts(filtered);
     }
 
