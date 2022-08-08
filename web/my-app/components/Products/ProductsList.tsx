@@ -1,6 +1,7 @@
 import Product from './Product';
 import { useShopCtx } from "../../store/shop-context";
 import ProductsSort from './ProductsSort';
+import { useEffect } from 'react';
 
 const ProductsList = () => {
     const { loadedProducts, activeProducts } = useShopCtx();

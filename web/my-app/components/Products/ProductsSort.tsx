@@ -1,14 +1,22 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { useShopCtx } from '../../store/shop-context';
 
-const classNames = (...classes: any) => {
+const classNames = (...classes: string[]) => {
     return classes.filter(Boolean).join(' ')
 }
 
 const ProductsSort = () => {
-    const { setSortingType, sortingType } = useShopCtx();
+    const { setSortingType, sortingType, activeProducts } = useShopCtx();
+
+    useEffect(() => {
+        sortingHandler('ascending')
+    }, [])
+
+    const sortingHandler = (type: string) => {
+        type === 'ascending' ? (setSortingType('ascending'), activeProducts.sort((a, b) => (a.price > b.price) ? 1 : -1)) : (setSortingType('descending'), activeProducts.sort((a, b) => (a.price > b.price) ? -1 : 1));
+    }
 
     return (
         <Menu as="div" className="relative inline-block text-left z-10 ml-auto">
@@ -37,7 +45,7 @@ const ProductsSort = () => {
                                         active ? 'bg-gray-100 text-gray-900 cursor-pointer' : 'text-gray-700',
                                         'block px-4 py-2 text-sm'
                                     )}
-                                    onClick={() => setSortingType('ascending')}
+                                    onClick={() => sortingHandler('ascending')}
                                 >
                                     Sort Ascending
                                 </div>
@@ -50,7 +58,7 @@ const ProductsSort = () => {
                                         active ? 'bg-gray-100 text-gray-900 cursor-pointer' : 'text-gray-700',
                                         'block px-4 py-2 text-sm'
                                     )}
-                                    onClick={() => setSortingType('descending')}
+                                    onClick={() => sortingHandler('descending')}
                                 >
                                     Sort Descending
                                 </div>

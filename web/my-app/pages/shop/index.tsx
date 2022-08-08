@@ -6,7 +6,7 @@ import { useShopCtx } from "../../store/shop-context";
 import { useEffect } from "react";
 
 const shopPage = ({ prod }: { prod: product[] }) => {
-    const { loadMore, loadedProducts, setActiveProducts, activeProducts, setAllProducts } = useShopCtx();
+    const { loadMore, loadedProducts, setActiveProducts, activeProducts, setAllProducts, setSortingType } = useShopCtx();
 
     useEffect(() => {
         setActiveProducts(prod);
