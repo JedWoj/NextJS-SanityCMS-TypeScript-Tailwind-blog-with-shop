@@ -18,14 +18,14 @@ const ProductsFilter = () => {
 
     return (
         <div className="gradient--rotated py-4 max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 mt-8 rounded text-white relative text-left">
-            <p className="text-3xl">
+            <p className="text-xl md:text-2xl lg:text-3xl">
                 {filterIsOpen ? 'Click "-" to hide filters!' : 'Click "+" to add filters!'}
             </p>
             <div onClick={() => setFilterIsOpen(prev => !prev)} className="w-12 h-12 cursor-pointer absolute bottom-1 right-1 text-5xl">
                 {filterIsOpen ? '-' : '+'}
             </div>
             {filterIsOpen && <div className="flex">
-                <div className="flex flex-col w-1/12 mt-2">
+                <div className="flex flex-col w-1/5 sm:w-1/6 lg:w-1/12 mt-2">
                     <h2 className="font-bold">
                         Gender
                     </h2>
@@ -48,7 +48,7 @@ const ProductsFilter = () => {
                         <input type="checkbox" id="unisex" value="unisex" name="gender" className="checkbox" defaultChecked />
                     </div>
                 </div>
-                <div className="flex flex-col w-1/6 ml-10 mt-2">
+                <div className="flex flex-col w-1/3 lg:w-1/6 ml-5 mt-2">
                     <h2 className="font-bold">
                         Category
                     </h2>
@@ -77,7 +77,7 @@ const ProductsFilter = () => {
                         <input type="checkbox" id="jewellery" value="jewellery" name="category" className="checkbox" defaultChecked />
                     </div>
                 </div>
-                <button onClick={handleFiltering} className="gradient--reversed self-center rounded py-3 px-6 ml-auto shadow-2xl">
+                <button onClick={handleFiltering} className="gradient--reversed self-center rounded py-2 px-3 lg:py-3 lg:px-5 ml-auto shadow-2xl">
                     Apply filters
                 </button>
             </div>}

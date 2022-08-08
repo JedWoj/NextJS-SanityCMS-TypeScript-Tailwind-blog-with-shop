@@ -5,7 +5,7 @@ const CartIcon = () => {
     const items = cart.map(item => item.quantity).reduce((a, b) => a + b, 0);
     return (
         <>
-            {!modalIsOpen && <div onClick={setModalIsOpen} className="rounded-full gradient fixed bottom-12 right-12 w-20 h-20 cursor-pointer flex justify-center items-center">
+            {!modalIsOpen && <div onClick={setModalIsOpen} className="rounded-full gradient fixed bottom-6 right-6 md:bottom-12 md:right-12 w-16 h-16 lg:w-20 lg:h-20 cursor-pointer flex justify-center items-center">
                 <div className="absolute w-6 h-6 bg-red-400 top-0 right-0 rounded-full text-white text-center">
                     {items}
                 </div>
