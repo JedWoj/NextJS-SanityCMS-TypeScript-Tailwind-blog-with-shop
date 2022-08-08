@@ -31,6 +31,16 @@ export default {
             }
         },
         {
+            name: 'gender',
+            title: 'gender',
+            type: 'string'
+        },
+        {
+            name: 'category',
+            title: 'category',
+            type: 'string',
+        },
+        {
             name: 'description',
             title: 'description',
             type: 'array',

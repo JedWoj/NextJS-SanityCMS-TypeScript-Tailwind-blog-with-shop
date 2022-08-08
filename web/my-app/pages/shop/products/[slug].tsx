@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         description,
         slug,
         image,
-        Name
+        Name,
       }`;
 
     const product = await sanityClient.fetch(productQuery);

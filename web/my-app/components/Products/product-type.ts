@@ -26,4 +26,6 @@ export type product = {
     price: number,
     slug: slug,
     Name: string,
+    gender: string,
+    category: string,
 }
