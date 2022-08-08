@@ -4,14 +4,16 @@ import ProductsFilter from "../../components/Products/ProductsFilter";
 import { product } from "../../components/Products/product-type";
 import { useShopCtx } from "../../store/shop-context";
 import { useEffect } from "react";
+import { sortProducts } from "../../components/Products/utils/sorting";
 
 const shopPage = ({ prod }: { prod: product[] }) => {
-    const { loadMore, loadedProducts, setActiveProducts, activeProducts, setAllProducts, setSortingType } = useShopCtx();
+    const { loadMore, loadedProducts, setActiveProducts, activeProducts, setAllProducts, sortingType } = useShopCtx();
 
     useEffect(() => {
-        setActiveProducts(prod);
-        setAllProducts(prod);
-    }, [])
+        const sortedProd = sortProducts(sortingType, prod)
+        setActiveProducts(sortedProd);
+        setAllProducts(sortedProd);
+    }, [prod, sortingType])
 
     return (
         <section className="text-center">

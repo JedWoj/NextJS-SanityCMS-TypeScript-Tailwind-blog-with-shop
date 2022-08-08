@@ -1,7 +1,8 @@
-import { Fragment, useEffect } from 'react'
+import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { useShopCtx } from '../../store/shop-context';
+import { sortProducts } from './utils/sorting';
 
 const classNames = (...classes: string[]) => {
     return classes.filter(Boolean).join(' ')
@@ -10,12 +11,8 @@ const classNames = (...classes: string[]) => {
 const ProductsSort = () => {
     const { setSortingType, sortingType, activeProducts } = useShopCtx();
 
-    useEffect(() => {
-        sortingHandler('ascending')
-    }, [])
-
     const sortingHandler = (type: string) => {
-        type === 'ascending' ? (setSortingType('ascending'), activeProducts.sort((a, b) => (a.price > b.price) ? 1 : -1)) : (setSortingType('descending'), activeProducts.sort((a, b) => (a.price > b.price) ? -1 : 1));
+        type === 'ascending' ? (setSortingType('ascending'), sortProducts('ascending', activeProducts)) : (setSortingType('descending'), sortProducts('descending', activeProducts));
     }
 
     return (

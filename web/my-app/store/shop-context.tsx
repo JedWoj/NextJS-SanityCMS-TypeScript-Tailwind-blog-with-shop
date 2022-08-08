@@ -19,7 +19,7 @@ const shopContextDefaultValues: shopContextType = {
     setActiveProducts: ([]) => [],
     allProducts: [],
     setAllProducts: ([]) => [],
-    sortingType: '',
+    sortingType: 'ascending',
     setSortingType: () => { },
 }
 
@@ -37,7 +37,7 @@ export const ShopCtxProvider = ({ children }: Props) => {
     const [loadedProducts, setLoadedProducts] = useState<number>(9);
     const [activeProducts, setActiveProducts] = useState<product[]>([]);
     const [allProducts, setAllProducts] = useState<product[]>([]);
-    const [sortingType, setSortingType] = useState<string>('');
+    const [sortingType, setSortingType] = useState<string>('ascending');
 
     const loadMore = () => {
         setLoadedProducts(loadedProducts + 9)
