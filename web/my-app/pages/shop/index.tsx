@@ -15,8 +15,6 @@ const shopPage = ({ prod }: { prod: product[] }) => {
         setAllProducts(sortedProd);
     }, [prod])
 
-    console.log(activeProducts)
-
     return (
         <section className="text-center">
             <ProductsFilter />

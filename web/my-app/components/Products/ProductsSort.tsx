@@ -12,7 +12,6 @@ const ProductsSort = () => {
     const { setSortingType, sortingType, activeProducts } = useShopCtx();
 
     const sortingHandler = (type: string) => {
-        console.log(activeProducts);
         type === 'ascending' ? (setSortingType('ascending'), sortProducts('ascending', activeProducts)) : (setSortingType('descending'), sortProducts('descending', activeProducts));
     }
 

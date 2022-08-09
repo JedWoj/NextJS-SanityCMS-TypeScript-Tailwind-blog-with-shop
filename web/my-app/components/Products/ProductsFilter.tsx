@@ -6,12 +6,10 @@ const ProductsFilter = () => {
     const [filters, setFilters] = useState({ male: true, female: true, unisex: true, clothing: true, fightingEquipment: true, accessories: true, jewellery: true })
     const { allProducts, setActiveProducts } = useShopCtx();
 
-    console.log(filters);
-
     const getCheckedCategories = () => {
         const categories = [];
         for (const category in filters) {
-            if (filters[category] === true) {
+            if (filters[category as keyof typeof filters] === true) {
                 categories.push(category)
             }
         }
