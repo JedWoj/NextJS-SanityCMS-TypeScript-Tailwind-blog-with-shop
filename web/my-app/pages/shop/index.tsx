@@ -6,7 +6,7 @@ import { useShopCtx } from "../../store/shop-context";
 import { useEffect } from "react";
 import { sortProducts } from "../../components/Products/utils/sorting";
 
-const shopPage = ({ prod }: { prod: product[] }) => {
+const ShopPage = ({ prod }: { prod: product[] }) => {
     const { loadMore, loadedProducts, setActiveProducts, activeProducts, setAllProducts, sortingType } = useShopCtx();
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const shopPage = ({ prod }: { prod: product[] }) => {
             const sortedProd = sortProducts(sortingType, activeProducts);
             setActiveProducts(sortedProd)
         }
-    }, [prod, sortingType])
+    }, [prod, sortingType, activeProducts,setAllProducts,setActiveProducts])
 
     return (
         <section className="text-center">
@@ -47,4 +47,4 @@ export const getStaticProps = async () => {
     return { props: { prod }, revalidate: 120 }
 }
 
-export default shopPage;
+export default ShopPage;
