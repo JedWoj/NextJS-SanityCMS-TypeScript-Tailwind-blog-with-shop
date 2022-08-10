@@ -2,6 +2,7 @@ import { product } from "./product-type";
 import { urlFor } from "../../../../lib/sanity";
 import Image from "next/image";
 import { useCartCtx } from "../../store/cart-context";
+import Return from "../UI/Return";
 
 const ProductOverview = ({ product }: { product: product }) => {
     const { addToCart } = useCartCtx();
@@ -14,7 +15,7 @@ const ProductOverview = ({ product }: { product: product }) => {
     }
 
     return (
-        <section className="container mx-auto text-center border p-6 lg:px-60 my-4 shadow-2xl">
+        <section className="container mx-auto text-center border p-6 lg:px-60 my-4 shadow-2xl relative">
             <h1 className="text-4xl gradient--text">
                 {product.Name}
             </h1>
@@ -32,6 +33,7 @@ const ProductOverview = ({ product }: { product: product }) => {
             <button onClick={addToCart.bind(null, item)} className="bg-emerald-400 text-white rounded py-4 px-6 mt-12">
                 Add to cart
             </button>
+            <Return dest="/shop" />
         </section>
     )
 }

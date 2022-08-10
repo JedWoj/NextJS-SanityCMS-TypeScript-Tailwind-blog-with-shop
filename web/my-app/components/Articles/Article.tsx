@@ -3,12 +3,13 @@ import Image from "next/image";
 import { urlFor } from "../../../../lib/sanity";
 import styles from './Article.module.scss';
 import PortableText from "react-portable-text";
+import Return from "../UI/Return";
 
 const Article = ({ post }: { post: post[] }) => {
     const singlePost = post.at(0);
 
     return (
-        <article className={`container mx-auto my-6 ${styles.article} border rounded shadow-2xl`}>
+        <article className={`container mx-auto my-6 ${styles.article} border rounded shadow-2xl relative`}>
             <header className={`mx-12 xl:mx-32 2xl:mx-64 text-center overflow-hidden ${styles.article__header}`}>
                 <h1 className="py-12 text-3xl lg:text-5xl gradient--text">
                     {singlePost?.header}
@@ -20,6 +21,7 @@ const Article = ({ post }: { post: post[] }) => {
             <section className="mx-12 mt-6 xl:mx-32 2xl:mx-64 text-justify mb-12 gradient--text font-semibold">
                 <PortableText content={singlePost!.content} />
             </section>
+            <Return dest="/blog" />
         </article>
     )
 }
