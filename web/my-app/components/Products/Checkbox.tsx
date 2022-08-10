@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useShopCtx } from "../../store/shop-context";
 
 export type filters = {
@@ -12,18 +12,41 @@ export type filters = {
 }
 
 const Checkbox = ({ category, label }: { category: string, label: string }) => {
-    const { filter } = useShopCtx();
+    const { filterProducts, filters } = useShopCtx();
     const [checked, setChecked] = useState(true);
-    const handleCheck = () => {
-        filter(category);
-    }
+
+    useEffect(() => {
+        switch (category) {
+            case 'male':
+                filters.male === true ? setChecked(true) : setChecked(false);
+                break
+            case 'female':
+                filters.female === true ? setChecked(true) : setChecked(false);
+                break
+            case 'unisex':
+                filters.unisex === true ? setChecked(true) : setChecked(false);
+                break
+            case 'clothing':
+                filters.clothing === true ? setChecked(true) : setChecked(false);
+                break
+            case 'fightingEquipment':
+                filters.fightingEquipment === true ? setChecked(true) : setChecked(false);
+                break
+            case 'accessories':
+                filters.accessories === true ? setChecked(true) : setChecked(false);
+                break
+            case 'jewellery':
+                filters.jewellery === true ? setChecked(true) : setChecked(false);
+                break
+        }
+    }, [filters])
 
     return (
         <div className="flex items-center justify-between">
             <p>
                 {label}
             </p>
-            <div onClick={handleCheck} className={`border p-2 ml-2 cursor-pointer ${checked ? 'gradient' : null}`}>
+            <div onClick={() => filterProducts(category)} className={`border p-2 ml-2 cursor-pointer ${checked ? 'gradient' : null}`}>
             </div>
         </div>
     )

@@ -10,10 +10,15 @@ const shopPage = ({ prod }: { prod: product[] }) => {
     const { loadMore, loadedProducts, setActiveProducts, activeProducts, setAllProducts, sortingType } = useShopCtx();
 
     useEffect(() => {
-        const sortedProd = sortProducts(sortingType, prod)
-        setActiveProducts(sortedProd);
-        setAllProducts(sortedProd);
-    }, [prod])
+        if (activeProducts.length === 0) {
+            const sortedProd = sortProducts(sortingType, prod)
+            setActiveProducts(sortedProd);
+            setAllProducts(sortedProd);
+        } else {
+            const sortedProd = sortProducts(sortingType, activeProducts);
+            setActiveProducts(sortedProd)
+        }
+    }, [prod, sortingType])
 
     return (
         <section className="text-center">

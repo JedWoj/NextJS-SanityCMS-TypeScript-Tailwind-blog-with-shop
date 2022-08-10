@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { useShopCtx } from "../../store/shop-context";
 import React from "react";
 import Checkbox from "./Checkbox";
 
 const ProductsFilter = () => {
     const { allProducts, setActiveProducts, filters } = useShopCtx();
+
+    useEffect(() => {
+        handleFiltering();
+    }, [])
 
     const getCheckedCategories = () => {
         const categories = [];

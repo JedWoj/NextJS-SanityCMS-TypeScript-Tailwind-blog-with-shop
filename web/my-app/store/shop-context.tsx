@@ -12,7 +12,7 @@ type shopContextType = {
     sortingType: string,
     setSortingType: (type: string) => void,
     filters: filters,
-    filter: (category: string) => void,
+    filterProducts: (category: string) => void,
 }
 
 const shopContextDefaultValues: shopContextType = {
@@ -33,7 +33,7 @@ const shopContextDefaultValues: shopContextType = {
         male: true,
         unisex: true
     },
-    filter: (category: string) => { },
+    filterProducts: (category: string) => { },
 }
 
 const shopContext = createContext<shopContextType>(shopContextDefaultValues);
@@ -57,7 +57,7 @@ export const ShopCtxProvider = ({ children }: Props) => {
         setLoadedProducts(loadedProducts + 9)
     }
 
-    const filter = (category: string) => {
+    const filterProducts = (category: string) => {
         switch (category) {
             case 'male':
                 setFilters((prev: filters) => ({ ...prev, male: !prev.male }));
@@ -93,7 +93,7 @@ export const ShopCtxProvider = ({ children }: Props) => {
         sortingType,
         setSortingType,
         filters,
-        filter,
+        filterProducts,
     }
 
     return (
