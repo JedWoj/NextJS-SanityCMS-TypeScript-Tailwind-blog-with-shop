@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const landingPage = () => {
+const LandingPage = () => {
   return(
     <div className="gradient--reversed min-h-screen text-center py-8 lg:py-20">
     <div className="container mx-auto text-white">
       <div className="bg-white rounded py-6">
-        <h1 className="gradient--text font-bold text-2xl md:text-4xl">
+        <h1 className="gradient--text font-bold text-2xl md:text-4xl py-1">
           Welcome to Tapology - the best UFC related site in the world!
         </h1>  
         <p className="mt-4 lg:mt-8 gradient--text font-semibold text-lg md:text-2xl">
@@ -20,7 +20,7 @@ const landingPage = () => {
               Blog
             </p>
             <figure className="bg-white cursor-pointer h-96 shadow-2xl relative">
-              <Image layout="fill" objectFit="cover" src="/../public/image/2013-ufc-event-poster-collage.webp" />
+              <Image layout="fill" objectFit="cover" alt="ufc posters" src="/../public/image/2013-ufc-event-poster-collage.webp" />
             </figure>
           </div>
         </Link>
@@ -30,7 +30,7 @@ const landingPage = () => {
             Shop
           </p>
           <figure className="bg-white cursor-pointer h-96 shadow-2xl relative">
-            <Image layout='fill' objectFit='contain' src="/../public/image/ufc-logo.webp" />
+            <Image layout='fill' objectFit='contain' alt="ufc shop logo" src="/../public/image/ufc-logo.webp" />
           </figure>
         </div>
         </Link>
@@ -40,4 +40,4 @@ const landingPage = () => {
   )
 }
 
-export default landingPage;
+export default LandingPage;

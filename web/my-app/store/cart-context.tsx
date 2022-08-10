@@ -1,4 +1,3 @@
-import { type } from "os";
 import { createContext, ReactNode, useContext, useState, useReducer } from "react";
 
 export type item = {
@@ -18,8 +17,6 @@ type cartContextType = {
     clearCart: () => void,
     totalAmount: number,
 }
-
-type Reducer<State, Action> = (state: cartContextType, action: Action) => State;
 
 enum ActionKind {
     Add = 'ADD',
@@ -46,12 +43,11 @@ const cartContextDefaultValues: cartContextType = {
     totalAmount: 0,
 }
 
-const cartContext = createContext<cartContextType>(cartContextDefaultValues);
+const cartContext = createContext(cartContextDefaultValues);
 
 export const useCartCtx = () => {
     return useContext(cartContext);
 }
-
 
 const defaultCartState = {
     cart: [],
