@@ -1,4 +1,5 @@
 import { product } from '../components/Products/product-type';
+import { filters } from '../components/Products/Checkbox';
 import { createContext, ReactNode, useContext, useState } from 'react';
 
 type shopContextType = {
@@ -10,6 +11,8 @@ type shopContextType = {
     setAllProducts: (products: product[]) => void,
     sortingType: string,
     setSortingType: (type: string) => void,
+    filters: filters,
+    filter: (category: string) => void,
 }
 
 const shopContextDefaultValues: shopContextType = {
@@ -21,6 +24,16 @@ const shopContextDefaultValues: shopContextType = {
     setAllProducts: ([]) => [],
     sortingType: 'ascending',
     setSortingType: () => { },
+    filters: {
+        accessories: true,
+        clothing: true,
+        female: true,
+        fightingEquipment: true,
+        jewellery: true,
+        male: true,
+        unisex: true
+    },
+    filter: (category: string) => { },
 }
 
 const shopContext = createContext<shopContextType>(shopContextDefaultValues);
@@ -38,9 +51,36 @@ export const ShopCtxProvider = ({ children }: Props) => {
     const [activeProducts, setActiveProducts] = useState<product[]>([]);
     const [allProducts, setAllProducts] = useState<product[]>([]);
     const [sortingType, setSortingType] = useState<string>('ascending');
+    const [filters, setFilters] = useState<filters>({ male: true, female: true, unisex: true, clothing: true, fightingEquipment: true, accessories: true, jewellery: true })
 
     const loadMore = () => {
         setLoadedProducts(loadedProducts + 9)
+    }
+
+    const filter = (category: string) => {
+        switch (category) {
+            case 'male':
+                setFilters((prev: filters) => ({ ...prev, male: !prev.male }));
+                break
+            case 'female':
+                setFilters((prev: filters) => ({ ...prev, female: !prev.female }))
+                break
+            case 'unisex':
+                setFilters((prev) => ({ ...prev, unisex: !prev.unisex }))
+                break
+            case 'clothing':
+                setFilters((prev: filters) => ({ ...prev, clothing: !prev.clothing }))
+                break
+            case 'fightingEquipment':
+                setFilters((prev: filters) => ({ ...prev, fightingEquipment: !prev.fightingEquipment }))
+                break
+            case 'accessories':
+                setFilters((prev: filters) => ({ ...prev, accessories: !prev.accessories }))
+                break
+            case 'jewellery':
+                setFilters((prev: filters) => ({ ...prev, jewellery: !prev.jewellery }));
+                break
+        }
     }
 
     const value = {
@@ -52,6 +92,8 @@ export const ShopCtxProvider = ({ children }: Props) => {
         setAllProducts,
         sortingType,
         setSortingType,
+        filters,
+        filter,
     }
 
     return (
