@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const landingPage = () => {
   return(
-  <div className="gradient--reversed min-h-screen text-center py-8 lg:py-20">
+    <div className="gradient--reversed min-h-screen text-center py-8 lg:py-20">
     <div className="container mx-auto text-white">
       <h1 className="text-white font-bold text-2xl md:text-4xl">
         Welcome to the best UFC related site in the world!

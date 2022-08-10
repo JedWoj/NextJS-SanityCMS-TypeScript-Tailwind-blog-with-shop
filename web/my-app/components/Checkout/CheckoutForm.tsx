@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useCartCtx } from "../../store/cart-context";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-import CheckoutPopup from "./CheckoutPopup";
 import React from "react";
 
 export type Popup = {
@@ -61,7 +60,7 @@ const CheckoutForm = ({ popupHandler }: Popup) => {
             {formik.touched.adress && formik.errors.adress ? <p className="font-bold">{formik.errors.adress}</p> : null}
             <div className="flex gap-2 rounded mt-6 text-center font-bold text-lg justify-evenly">
                 <div className="bg-white w-1/2 sm:w-1/4">
-                    <button className="gradient--text w-full py-2 cursor-pointer">
+                    <button type="submit" className="gradient--text w-full py-2 cursor-pointer">
                         Pay
                     </button>
                 </div>
