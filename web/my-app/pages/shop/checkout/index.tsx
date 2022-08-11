@@ -3,7 +3,7 @@ import CheckoutForm from "../../../components/Checkout/CheckoutForm";
 import CheckoutSummary from "../../../components/Checkout/CheckoutSummary";
 import CheckoutPopup from "../../../components/Checkout/CheckoutPopup";
 
-const checkoutPage = () => {
+const CheckoutPage = () => {
     const [popupIsOpen, setPopupIsOpen] = useState(false);
 
     return (
@@ -15,4 +15,4 @@ const checkoutPage = () => {
     )
 }
 
-export default checkoutPage;
+export default CheckoutPage;

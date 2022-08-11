@@ -8,7 +8,7 @@ type Props = {
     posts: post[];
 }
 
-const allBlogPostsPage = ({ posts }: Props) => {
+const AllBlogPostsPage = ({ posts }: Props) => {
     const [activePage, setActivepage] = useState(0);
 
     const renderPosts = () => {
@@ -39,4 +39,4 @@ export const getStaticProps = async () => {
     return { props: { posts }, revalidate: 180 }
 }
 
-export default allBlogPostsPage;
+export default AllBlogPostsPage;

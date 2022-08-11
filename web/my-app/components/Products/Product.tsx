@@ -1,16 +1,18 @@
 import { urlFor } from '../../../../lib/sanity';
 import { product } from './product-type';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Product = ({ product }: { product: product }) => {
     return (
         <Link href={`shop/products/${product.slug.current}`}>
             <li className="group relative cursor-pointer">
                 <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img
+                    <Image
                         src={urlFor(product.image.asset._ref).url()}
                         alt={product.Name}
-                        className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                        width={600}
+                        height={600}
                     />
                 </div>
                 <div className="mt-4 flex justify-between">

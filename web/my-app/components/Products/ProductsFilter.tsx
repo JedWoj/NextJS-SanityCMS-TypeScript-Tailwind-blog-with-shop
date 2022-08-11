@@ -1,16 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useShopCtx } from "../../store/shop-context";
 import React from "react";
 import Checkbox from "./Checkbox";
 
 const ProductsFilter = () => {
     const { allProducts, setActiveProducts, filters } = useShopCtx();
-
-    useEffect(() => {
-        handleFiltering();
-    }, [])
-
-    const getCheckedCategories = () => {
+    
+    const getCheckedCategories = useCallback(() => {
         const categories = [];
         for (const category in filters) {
             if (filters[category as keyof typeof filters] === true) {
@@ -18,13 +14,19 @@ const ProductsFilter = () => {
             }
         }
         return categories;
-    }
-
-    const handleFiltering = () => {
+    },[filters])
+    
+    const handleFiltering = useCallback(() => {
         const categories = getCheckedCategories();
         const filtered = allProducts.filter(p => categories.includes(p.gender)).filter(p => categories.includes(p.category));
         setActiveProducts(filtered);
-    }
+    },[allProducts,setActiveProducts,getCheckedCategories])
+    
+    useEffect(() => {
+        handleFiltering();
+    }, [handleFiltering])
+
+
 
     return (
         <div className="gradient--rotated py-4 max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 mt-8 rounded text-white relative text-left">
