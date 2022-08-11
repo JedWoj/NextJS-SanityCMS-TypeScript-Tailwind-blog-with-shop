@@ -39,7 +39,7 @@ const Checkbox = ({ category, label }: { category: string, label: string }) => {
                 filters.jewellery === true ? setChecked(true) : setChecked(false);
                 break
         }
-    }, [filters,category])
+    }, [filters, category])
 
     return (
         <div className="flex items-center justify-between">

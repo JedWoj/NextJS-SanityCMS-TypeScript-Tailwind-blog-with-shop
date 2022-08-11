@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+import { useEffect,useCallback } from "react";
 import { useShopCtx } from "../../store/shop-context";
 import React from "react";
 import Checkbox from "./Checkbox";
@@ -15,13 +15,12 @@ const ProductsFilter = () => {
         }
         return categories;
     },[filters])
-    
     const handleFiltering = useCallback(() => {
         const categories = getCheckedCategories();
         const filtered = allProducts.filter(p => categories.includes(p.gender)).filter(p => categories.includes(p.category));
         setActiveProducts(filtered);
-    },[allProducts,setActiveProducts,getCheckedCategories])
-    
+    },[allProducts,getCheckedCategories, setActiveProducts])
+
     useEffect(() => {
         handleFiltering();
     }, [handleFiltering])
@@ -48,9 +47,6 @@ const ProductsFilter = () => {
                     <Checkbox label="Accessories" category="accessories" />
                     <Checkbox label="Jewellery" category="jewellery" />
                 </div>
-                <button onClick={handleFiltering} className="gradient--reversed self-center rounded py-2 px-3 lg:py-3 lg:px-5 ml-auto shadow-2xl">
-                    Apply filters
-                </button>
             </div>
         </div>
     )

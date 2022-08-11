@@ -18,7 +18,7 @@ const ShopPage = ({ prod }: { prod: product[] }) => {
             const sortedProd = sortProducts(sortingType, activeProducts);
             setActiveProducts(sortedProd)
         }
-    }, [prod, sortingType, activeProducts, setActiveProducts,setAllProducts])
+    }, [prod, sortingType, activeProducts,setAllProducts,setActiveProducts])
 
     return (
         <section className="text-center">

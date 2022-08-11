@@ -11,8 +11,9 @@ const Product = ({ product }: { product: product }) => {
                     <Image
                         src={urlFor(product.image.asset._ref).url()}
                         alt={product.Name}
-                        width={600}
-                        height={600}
+                        width={500}
+                        height={520}
+                        className="w-full h-full object-center object-cover lg:w-full lg:h-full"
                     />
                 </div>
                 <div className="mt-4 flex justify-between">
