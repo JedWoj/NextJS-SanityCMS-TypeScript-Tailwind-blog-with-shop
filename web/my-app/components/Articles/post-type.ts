@@ -1,41 +1,41 @@
-export type slug = {
+export type Slug = {
     _type: string,
     current: string,
 }
 
-type asset = {
+type Asset = {
     _ref: string,
     _type: string
 }
 
-export type image = {
+export type Image = {
     _type: string,
-    asset: asset
+    asset: Asset
 }
 
-type children = {
+type Children = {
     _key: string,
     _type: string,
     text: string;
     marks: [];
 }
 
-type block = {
+type Block = {
     _key: string,
     type: string,
-    children: children[];
+    children: Children[];
 }
 
-type content = {
-    content: block[];
-    children: children[];
+type Content = {
+    content: Block[];
+    children: Children[];
 }
 
 export type post = {
     author: string,
     header: string,
-    slug: slug,
+    slug: Slug,
     _id: string,
-    image: image,
-    content: content[];
+    image: Image,
+    content: Content[];
 }

@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import { sanityClient } from "../../../../../lib/sanity";
-import { product } from "../../../components/Products/product-type";
+import { Product } from "../../../components/Products/product-type";
 import ProductOverview from "../../../components/Products/ProductOverview";
 
-const SingleProductPage = ({ product }: { product: product[] }) => {
+const SingleProductPage = ({ product }: { product: Product[] }) => {
 
     return (
         <div>

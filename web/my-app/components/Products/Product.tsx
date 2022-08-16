@@ -1,9 +1,9 @@
 import { urlFor } from '../../../../lib/sanity';
-import { product } from './product-type';
+import { Product } from './product-type';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const Product = ({ product }: { product: product }) => {
+const Product = ({ product }: { product: Product }) => {
     return (
         <Link href={`shop/products/${product.slug.current}`}>
             <li className="group relative cursor-pointer">

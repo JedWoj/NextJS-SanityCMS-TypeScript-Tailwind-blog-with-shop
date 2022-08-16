@@ -25,8 +25,6 @@ const ProductsFilter = () => {
         handleFiltering();
     }, [handleFiltering])
 
-
-
     return (
         <div className="gradient--rotated py-4 max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 mt-8 rounded text-white relative text-left">
             <div className="flex">

@@ -1,16 +1,15 @@
 import { post } from "./post-type";
 import Image from "next/image";
 import { urlFor } from "../../../../lib/sanity";
-import styles from './Article.module.scss';
 import PortableText from "react-portable-text";
 import Return from "../UI/Return";
 
-const Article = ({ post }: { post: post[] }) => {
+const Article = ({ post }: { post:post[] }) => {
     const singlePost = post.at(0);
 
     return (
-        <article className={`container mx-auto my-6 ${styles.article} border rounded shadow-2xl relative`}>
-            <header className={`mx-12 xl:mx-32 2xl:mx-64 text-center overflow-hidden ${styles.article__header}`}>
+        <article className={`container mx-auto my-6 min-h-[100vh] border rounded shadow-2xl relative`}>
+            <header className={`mx-12 xl:mx-32 2xl:mx-64 text-center overflow-hidden h-[80vh]`}>
                 <h1 className="py-12 text-3xl lg:text-5xl gradient--text">
                     {singlePost?.header}
                 </h1>

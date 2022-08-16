@@ -1,30 +1,30 @@
-import { slug, image } from "../Articles/post-type"
+import { Slug, Image } from "../Articles/post-type"
 
-type child = {
+type Child = {
     _key: string,
     _type: string,
     text: string,
     marks: [];
 }
 
-type children = [child]
+type Children = [Child]
 
-type desc = {
+type Desc = {
     _key: string,
     _type: string,
     style: string,
     markDefs: [],
-    children: children,
+    children: Children,
 }
 
-type description = [desc]
+type Description = [Desc]
 
-export type product = {
+export type Product = {
     _id: string,
-    description: description,
-    image: image,
+    description: Description,
+    image: Image,
     price: number,
-    slug: slug,
+    slug: Slug,
     Name: string,
     gender: string,
     category: string,

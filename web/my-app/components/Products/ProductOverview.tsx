@@ -1,10 +1,10 @@
-import { product } from "./product-type";
+import { Product } from "./product-type";
 import { urlFor } from "../../../../lib/sanity";
 import Image from "next/image";
 import { useCartCtx } from "../../store/cart-context";
 import Return from "../UI/Return";
 
-const ProductOverview = ({ product }: { product: product }) => {
+const ProductOverview = ({ product }: { product: Product }) => {
     const { addToCart } = useCartCtx();
     const item = {
         name: product.Name,

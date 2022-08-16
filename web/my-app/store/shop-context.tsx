@@ -1,14 +1,14 @@
-import { product } from '../components/Products/product-type';
+import { Product } from '../components/Products/product-type';
 import { filters } from '../components/Products/Checkbox';
 import { createContext, ReactNode, useContext, useState } from 'react';
 
 type shopContextType = {
     loadedProducts: number,
     loadMore: () => void,
-    activeProducts: product[],
-    setActiveProducts: (products: product[]) => void,
-    allProducts: product[],
-    setAllProducts: (products: product[]) => void,
+    activeProducts: Product[],
+    setActiveProducts: (products: Product[]) => void,
+    allProducts: Product[],
+    setAllProducts: (products: Product[]) => void,
     sortingType: string,
     setSortingType: (type: string) => void,
     filters: filters,
@@ -48,8 +48,8 @@ type Props = {
 
 export const ShopCtxProvider = ({ children }: Props) => {
     const [loadedProducts, setLoadedProducts] = useState<number>(9);
-    const [activeProducts, setActiveProducts] = useState<product[]>([]);
-    const [allProducts, setAllProducts] = useState<product[]>([]);
+    const [activeProducts, setActiveProducts] = useState<Product[]>([]);
+    const [allProducts, setAllProducts] = useState<Product[]>([]);
     const [sortingType, setSortingType] = useState<string>('ascending');
     const [filters, setFilters] = useState<filters>({ male: true, female: true, unisex: true, clothing: true, fightingEquipment: true, accessories: true, jewellery: true })
 
