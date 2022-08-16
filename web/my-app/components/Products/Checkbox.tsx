@@ -16,29 +16,7 @@ const Checkbox = ({ category, label }: { category: string, label: string }) => {
     const [checked, setChecked] = useState(true);
 
     useEffect(() => {
-        switch (category) {
-            case 'male':
-                filters.male === true ? setChecked(true) : setChecked(false);
-                break
-            case 'female':
-                filters.female === true ? setChecked(true) : setChecked(false);
-                break
-            case 'unisex':
-                filters.unisex === true ? setChecked(true) : setChecked(false);
-                break
-            case 'clothing':
-                filters.clothing === true ? setChecked(true) : setChecked(false);
-                break
-            case 'fightingEquipment':
-                filters.fightingEquipment === true ? setChecked(true) : setChecked(false);
-                break
-            case 'accessories':
-                filters.accessories === true ? setChecked(true) : setChecked(false);
-                break
-            case 'jewellery':
-                filters.jewellery === true ? setChecked(true) : setChecked(false);
-                break
-        }
+        setChecked(filters[category as keyof filters])
     }, [filters, category])
 
     return (

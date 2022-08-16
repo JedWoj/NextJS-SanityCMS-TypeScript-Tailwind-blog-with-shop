@@ -58,29 +58,7 @@ export const ShopCtxProvider = ({ children }: Props) => {
     }
 
     const filterProducts = (category: string) => {
-        switch (category) {
-            case 'male':
-                setFilters((prev: filters) => ({ ...prev, male: !prev.male }));
-                break
-            case 'female':
-                setFilters((prev: filters) => ({ ...prev, female: !prev.female }))
-                break
-            case 'unisex':
-                setFilters((prev) => ({ ...prev, unisex: !prev.unisex }))
-                break
-            case 'clothing':
-                setFilters((prev: filters) => ({ ...prev, clothing: !prev.clothing }))
-                break
-            case 'fightingEquipment':
-                setFilters((prev: filters) => ({ ...prev, fightingEquipment: !prev.fightingEquipment }))
-                break
-            case 'accessories':
-                setFilters((prev: filters) => ({ ...prev, accessories: !prev.accessories }))
-                break
-            case 'jewellery':
-                setFilters((prev: filters) => ({ ...prev, jewellery: !prev.jewellery }));
-                break
-        }
+        setFilters((prev: filters) => ({...prev, [category]: !prev[category as keyof filters]}))
     }
 
     const value = {

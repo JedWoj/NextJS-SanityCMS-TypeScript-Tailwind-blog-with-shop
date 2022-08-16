@@ -36,27 +36,57 @@ const CheckoutForm = ({ popupHandler }: Popup) => {
             <label htmlFor="firstName">
                 First name
             </label>
-            <input value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur} className="outline-0 text-cyan-600 p-2 rounded" type='text' id="firstName" />
+            <input
+                value={formik.values.firstName} 
+                onChange={formik.handleChange} 
+                onBlur={formik.handleBlur} 
+                className="outline-0 text-cyan-600 p-2 rounded" 
+                type='text' id="firstName" 
+            />
             {formik.touched.firstName && formik.errors.firstName ? <p className="font-bold">{formik.errors.firstName}</p> : null}
             <label htmlFor="lastName">
                 Last name
             </label>
-            <input value={formik.values.lastName} onChange={formik.handleChange} onBlur={formik.handleBlur} className="outline-0 text-purple-600 p-2 rounded" type='text' id="lastName" />
+            <input 
+                value={formik.values.lastName} 
+                onChange={formik.handleChange} 
+                onBlur={formik.handleBlur} 
+                className="outline-0 text-purple-600 p-2 rounded" 
+                type='text' id="lastName" 
+            />
             {formik.touched.lastName && formik.errors.lastName ? <p className="font-bold">{formik.errors.lastName}</p> : null}
             <label htmlFor="email">
                 Your email
             </label>
-            <input value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} className="outline-0 text-pink-600 p-2 rounded" type='email' id="email" />
+            <input 
+                value={formik.values.email} 
+                onChange={formik.handleChange} 
+                onBlur={formik.handleBlur} 
+                className="outline-0 text-pink-600 p-2 rounded" 
+                type='email' id="email" 
+            />
             {formik.touched.email && formik.errors.email ? <p className="font-bold">{formik.errors.email}</p> : null}
             <label htmlFor="city">
                 Your city
             </label>
-            <input value={formik.values.city} onChange={formik.handleChange} onBlur={formik.handleBlur} className="outline-0 text-orange-600 p-2 rounded" type='text' id="city" />
+            <input 
+                value={formik.values.city} 
+                onChange={formik.handleChange} 
+                onBlur={formik.handleBlur} 
+                className="outline-0 text-orange-600 p-2 rounded" 
+                type='text' id="city" 
+            />
             {formik.touched.city && formik.errors.city ? <p className="font-bold">{formik.errors.city}</p> : null}
             <label htmlFor="adress">
                 Your adress
             </label>
-            <input value={formik.values.adress} onChange={formik.handleChange} onBlur={formik.handleBlur} className="outline-0 text-red-600 p-2 rounded" type='text' id="adress" />
+            <input 
+                value={formik.values.adress} 
+                onChange={formik.handleChange} 
+                onBlur={formik.handleBlur} 
+                className="outline-0 text-red-600 p-2 rounded" 
+                type='text' id="adress" 
+            />
             {formik.touched.adress && formik.errors.adress ? <p className="font-bold">{formik.errors.adress}</p> : null}
             <div className="flex gap-2 rounded mt-6 text-center font-bold text-lg justify-evenly">
                 <div className="bg-white w-1/2 sm:w-1/4">
