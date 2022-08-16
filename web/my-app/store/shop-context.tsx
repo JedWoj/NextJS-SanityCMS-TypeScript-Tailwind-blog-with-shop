@@ -13,6 +13,8 @@ type shopContextType = {
     setSortingType: (type: string) => void,
     filters: filters,
     filterProducts: (category: string) => void,
+    filtersTouched: boolean,
+    setFiltersTouched: (type: boolean) => void,
 }
 
 const shopContextDefaultValues: shopContextType = {
@@ -34,6 +36,8 @@ const shopContextDefaultValues: shopContextType = {
         unisex: true
     },
     filterProducts: (category: string) => { },
+    filtersTouched: false,
+    setFiltersTouched: () => {},
 }
 
 const shopContext = createContext<shopContextType>(shopContextDefaultValues);
@@ -52,6 +56,7 @@ export const ShopCtxProvider = ({ children }: Props) => {
     const [allProducts, setAllProducts] = useState<Product[]>([]);
     const [sortingType, setSortingType] = useState<string>('ascending');
     const [filters, setFilters] = useState<filters>({ male: true, female: true, unisex: true, clothing: true, fightingEquipment: true, accessories: true, jewellery: true })
+    const [filtersTouched, setFiltersTouched] = useState<boolean>(false)
 
     const loadMore = () => {
         setLoadedProducts(loadedProducts + 9)
@@ -72,6 +77,8 @@ export const ShopCtxProvider = ({ children }: Props) => {
         setSortingType,
         filters,
         filterProducts,
+        filtersTouched,
+        setFiltersTouched
     }
 
     return (

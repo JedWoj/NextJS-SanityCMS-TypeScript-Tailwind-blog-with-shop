@@ -4,9 +4,10 @@ import React from "react";
 import Checkbox from "./Checkbox";
 
 const ProductsFilter = () => {
-    const { allProducts, setActiveProducts, filters } = useShopCtx();
+    const { allProducts, setActiveProducts, filters, setFiltersTouched } = useShopCtx();
     
     const getCheckedCategories = useCallback(() => {
+        setFiltersTouched(true);
         const categories = [];
         for (const category in filters) {
             if (filters[category as keyof typeof filters] === true) {
@@ -14,7 +15,8 @@ const ProductsFilter = () => {
             }
         }
         return categories;
-    },[filters])
+    },[filters, setFiltersTouched])
+
     const handleFiltering = useCallback(() => {
         const categories = getCheckedCategories();
         const filtered = allProducts.filter(p => categories.includes(p.gender)).filter(p => categories.includes(p.category));

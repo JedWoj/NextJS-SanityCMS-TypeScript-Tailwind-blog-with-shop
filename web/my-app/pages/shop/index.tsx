@@ -1,16 +1,16 @@
 import { sanityClient } from "../../../../lib/sanity";
 import ProductsList from "../../components/Products/ProductsList";
 import ProductsFilter from "../../components/Products/ProductsFilter";
-import { product } from "../../components/Products/product-type";
+import { Product } from "../../components/Products/product-type";
 import { useShopCtx } from "../../store/shop-context";
 import { useEffect } from "react";
 import { sortProducts } from "../../components/Products/utils/sorting";
 
-const ShopPage = ({ prod }: { prod: product[] }) => {
-    const { loadMore, loadedProducts, setActiveProducts, activeProducts, setAllProducts, sortingType } = useShopCtx();
+const ShopPage = ({ prod }: { prod: Product[] }) => {
+    const { loadMore, loadedProducts, setActiveProducts, activeProducts, setAllProducts, sortingType, filtersTouched } = useShopCtx();
 
     useEffect(() => {
-        if (activeProducts.length === 0) {
+        if (activeProducts.length === 0 && !filtersTouched) {
             const sortedProd = sortProducts(sortingType, prod)
             setActiveProducts(sortedProd);
             setAllProducts(sortedProd);
@@ -18,7 +18,7 @@ const ShopPage = ({ prod }: { prod: product[] }) => {
             const sortedProd = sortProducts(sortingType, activeProducts);
             setActiveProducts(sortedProd)
         }
-    }, [prod, sortingType, activeProducts,setAllProducts,setActiveProducts])
+    }, [prod, sortingType, activeProducts,setAllProducts,setActiveProducts, filtersTouched])
 
     return (
         <section className="text-center">
