@@ -5,3 +5,6 @@ c)po odszukaniu projektu trzeba użyć komendy npm i
 d)gdy instalacja dobiegnie końca przy pomocy komendy cd należy przełączyć się do folderu "web" a z folderu "web" do "my-app"  
 e)w folderze my-app należy ponownie użyć npm i  
 f)po instalacji wystarczy użyć komendy npm run dev i wejść na adres podany w terminalu  
+
+2.Co się nauczyłem:  
+Jest to mój największy projekt dzięki któremu mocno podniosłem swoje kompetencje z zakresu Reacta jak i przećwiczyłem jego framework jakim jest NextJS. W projekcie tym poraz pierwszy miałem okazję pracować z CMS jakim jest Sanity, Tailwind oraz TypeScriptem. Projekt ten był dla mnie bardzo rozwijający gdyż dzięki niemu swobodnie się czuję w wyżej wymienionych technologiach.
