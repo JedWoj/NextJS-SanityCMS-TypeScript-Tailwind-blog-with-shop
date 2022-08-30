@@ -1,4 +1,4 @@
-import { urlFor } from '../../../../lib/sanity';
+import { urlFor } from '../../../../lib/sanity.js';
 import { Product } from './product-type';
 import Link from 'next/link';
 import Image from 'next/image';

@@ -1,5 +1,5 @@
 import { Product } from "./product-type";
-import { urlFor } from "../../../../lib/sanity";
+import { urlFor } from "../../../../lib/sanity.js";
 import Image from "next/image";
 import { useCartCtx } from "../../store/cart-context";
 import Return from "../UI/Return";

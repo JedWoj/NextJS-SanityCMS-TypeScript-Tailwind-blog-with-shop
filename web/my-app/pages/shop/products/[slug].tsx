@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { sanityClient } from "../../../../../lib/sanity";
+import { sanityClient } from "../../../../../lib/sanity.js";
 import { Product } from "../../../components/Products/product-type";
 import ProductOverview from "../../../components/Products/ProductOverview";
 

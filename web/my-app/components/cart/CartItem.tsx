@@ -1,6 +1,6 @@
 import { item } from "../../store/cart-context";
 import Image from "next/image";
-import { urlFor } from "../../../../lib/sanity";
+import { urlFor } from "../../../../lib/sanity.js";
 import { useCartCtx } from "../../store/cart-context";
 
 const CartItem = ({ item }: { item: item }) => {
