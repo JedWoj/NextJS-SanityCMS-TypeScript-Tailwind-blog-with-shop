@@ -21,7 +21,7 @@ const Checkbox = ({ category, label }: { category: string, label: string }) => {
 
     return (
         <div className="flex items-center justify-between">
-            <p>
+            <p className="text-sm sm:text-base">
                 {label}
             </p>
             <div onClick={() => filterProducts(category)} className={`border p-2 ml-2 cursor-pointer ${checked ? 'gradient' : null}`}>

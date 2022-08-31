@@ -9,7 +9,7 @@ const Pagination = ({ page, setPage, quantity }: { page: number, setPage: (page:
             {page > 0 && <div onClick={pageHandler.bind(null, '-')} className='gradient rounded px-4 py-2 xl:w-1/12 text-center cursor-pointer mr-auto'>
                 Previous
             </div>}
-            {page < (quantity / 6) - 1 && <div onClick={pageHandler.bind(null, '+')} className='gradient rounded px-4 py-2 w-1/6 xl:w-1/12 text-center cursor-pointer ml-auto'>
+            {page < (quantity / 6) - 1 && <div onClick={pageHandler.bind(null, '+')} className='gradient rounded px-4 py-2 w-1/4 sm:w-1/6 xl:w-1/12 text-center cursor-pointer ml-auto'>
                 Next
             </div>}
         </section>
