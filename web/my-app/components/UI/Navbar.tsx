@@ -6,7 +6,7 @@ const Navbar = () => {
         <nav className='flex text-white justify-between items-center gradient text-lg md:text-xl lg:text-2xl'>
             <Link href='/'>
                 <figure className="ml-6 relative h-12 w-32 md:h-16 lg:w-40 lg:h-24 cursor-pointer">
-                    <Image src="/../public/image/Logo_Tapology-removebg.png" layout='fill' objectFit='cover' alt="Logo" />
+                    <Image src="/image/Logo_Tapology-removebg.png" layout='fill' objectFit='cover' alt="Logo" />
                 </figure>
             </Link>
             <div className='flex'>

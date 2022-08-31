@@ -20,7 +20,7 @@ const LandingPage = () => {
               Blog
             </p>
             <figure className="bg-white cursor-pointer h-96 shadow-2xl relative">
-              <Image layout="fill" objectFit="cover" alt="ufc posters" src="/../public/image/2013-ufc-event-poster-collage.webp" />
+              <Image layout="fill" objectFit="cover" alt="ufc posters" src="/image/2013-ufc-event-poster-collage.webp" />
             </figure>
           </div>
         </Link>
@@ -30,7 +30,7 @@ const LandingPage = () => {
             Shop
           </p>
           <figure className="bg-white cursor-pointer h-96 shadow-2xl relative">
-            <Image layout='fill' objectFit='contain' alt="ufc shop logo" src="/../public/image/ufc-logo.webp" />
+            <Image layout='fill' objectFit='contain' alt="ufc shop logo" src="/image/ufc-logo.webp" />
           </figure>
         </div>
         </Link>
