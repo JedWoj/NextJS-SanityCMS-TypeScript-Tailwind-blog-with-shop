@@ -1,4 +1,4 @@
-import { sanityClient } from "../../../../../lib/sanity.js";
+import { sanityClient } from "../../../libs/sanity";
 import { post } from "../../../components/Articles/post-type";
 import { GetStaticProps } from "next";
 import Article from "../../../components/Articles/Article";

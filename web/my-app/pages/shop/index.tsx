@@ -1,4 +1,4 @@
-import { sanityClient } from "../../../../lib/sanity.js";
+import { sanityClient } from "../../libs/sanity";
 import ProductsList from "../../components/Products/ProductsList";
 import ProductsFilter from "../../components/Products/ProductsFilter";
 import { Product } from "../../components/Products/product-type";

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { sanityClient } from '../../../../lib/sanity.js';
+import { sanityClient } from '../../libs/sanity';
 import Post from '../../components/Articles/Post';
 import { post } from '../../components/Articles/post-type';
 import Pagination from '../../components/UI/Pagination';

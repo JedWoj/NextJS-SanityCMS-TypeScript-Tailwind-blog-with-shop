@@ -1,13 +1,13 @@
 import { item } from "../../store/cart-context";
 import Image from "next/image";
-import { urlFor } from "../../../../lib/sanity.js";
+import { urlFor } from "../../libs/sanity";
 import { useCartCtx } from "../../store/cart-context";
 
 const CartItem = ({ item }: { item: item }) => {
     const { removeFromCart, addToCart } = useCartCtx();
     return (
         <li className="flex gradient--text items-center pb-2 mb-2 border-b-2">
-            <Image className='rounded-t-md' src={urlFor(item.image).url()} alt={item.image} width={70} height={70} />
+            <Image className='rounded-t-md' src={urlFor(item.image)!} alt={item.image} width={70} height={70} />
             <p className="w-7/8 self-center ml-2 md:ml-6 gradient--text">
                 {item.name}
             </p>

@@ -1,4 +1,4 @@
-import { urlFor } from '../../../../lib/sanity.js';
+import { urlFor } from '../../libs/sanity';
 import { Product } from './product-type';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ const Product = ({ product }: { product: Product }) => {
             <li className="group relative cursor-pointer">
                 <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                     <Image
-                        src={urlFor(product.image.asset._ref).url()}
+                        src={urlFor(product.image.asset._ref)!}
                         alt={product.Name}
                         width={500}
                         height={520}

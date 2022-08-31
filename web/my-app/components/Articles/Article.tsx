@@ -1,6 +1,6 @@
 import { post } from "./post-type";
 import Image from "next/image";
-import { urlFor } from "../../../../lib/sanity.js";
+import { urlFor } from "../../libs/sanity";
 import PortableText from "react-portable-text";
 import Return from "../UI/Return";
 
@@ -14,7 +14,7 @@ const Article = ({ post }: { post:post[] }) => {
                     {singlePost?.header}
                 </h1>
                 <figure className='h-4/5 relative'>
-                    <Image layout='fill' objectFit='cover' className='rounded-t-md' src={urlFor(singlePost?.image.asset._ref).url()} alt={singlePost?.header} />
+                    <Image layout='fill' objectFit='cover' className='rounded-t-md' src={urlFor(singlePost!.image.asset._ref)!} alt={singlePost?.header} />
                 </figure>
             </header>
             <section className="mx-12 mt-6 xl:mx-32 2xl:mx-64 text-justify mb-12 gradient--text font-semibold">

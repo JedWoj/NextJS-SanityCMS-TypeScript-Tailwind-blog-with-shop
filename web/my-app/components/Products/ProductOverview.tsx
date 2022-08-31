@@ -1,5 +1,5 @@
 import { Product } from "./product-type";
-import { urlFor } from "../../../../lib/sanity.js";
+import { urlFor } from "../../libs/sanity";
 import Image from "next/image";
 import { useCartCtx } from "../../store/cart-context";
 import Return from "../UI/Return";
@@ -20,7 +20,7 @@ const ProductOverview = ({ product }: { product: Product }) => {
                 {product.Name}
             </h1>
             <figure className='h-96 relative m-12'>
-                <Image layout='fill' objectFit='contain' className='rounded-t-md' src={urlFor(product.image.asset._ref).url()} alt={product.Name} />
+                <Image layout='fill' objectFit='contain' className='rounded-t-md' src={urlFor(product.image.asset._ref)!} alt={product.Name} />
             </figure>
             <div className="flex flex-col-reverse gap-8">
                 <div className="font-bold text-5xl gradient--text">
