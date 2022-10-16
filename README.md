@@ -1,4 +1,4 @@
-### Wersja Live: https://next-js-sanity-cms-type-script-tailwind-blog-with-l082o9m5g.vercel.app
+## Wersja Live: https://next-js-sanity-cms-type-script-tailwind-blog-with-l082o9m5g.vercel.app
 
 ## 1.Technologie:  
 -NextJS  
